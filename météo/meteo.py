@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flasgger import Swagger
-import requests
 
 app = Flask(__name__)
 swagger = Swagger(app)
@@ -44,13 +43,14 @@ def get_weather():
             error:
               type: string
     """
-    city = request.args.get('city')
+    city = request.json.get('city')
+    print(city, flush=True)
     if city not in known_cities:
         return jsonify({"error": "Ville inconnue"}), 404
 
     lat, lon = known_cities[city]
     url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
-    resp = requests.get(url)
+    resp = request.get(url)
     if resp.status_code != 200:
         return jsonify({"error": "Erreur lors de l'appel à open-meteo"}), 502
 
@@ -83,4 +83,4 @@ def get_cities():
     return jsonify({"available_cities": list(known_cities.keys())})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='localhost', port=5000)
