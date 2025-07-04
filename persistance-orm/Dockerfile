@@ -13,5 +13,5 @@ COPY . .
 # Expose le port du service
 EXPOSE 5000
 
-# Lance le serveur Flask
-CMD ["python", "meteo.py"]
+# Lance Philibert (le client météo intelligent)
+CMD ["python", "philiber.py"]
