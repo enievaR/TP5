@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose le port du service
-EXPOSE 5000
+EXPOSE 4000
 
-# Lance Philibert (le client météo intelligent)
+# Lance Philibert
 CMD ["python", "philiber.py"]

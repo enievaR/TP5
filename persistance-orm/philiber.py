@@ -149,7 +149,7 @@ if __name__ == "__main__":
                 print("Impossible de récupérer les données météo")
                 wait_time = ERROR_INTERVAL
             
-            print(f"⏳ Prochaine vérification dans {wait_time//60} minutes...")
+            print(f"Prochaine vérification dans {wait_time//60} minutes...")
             time.sleep(wait_time)
             
         except KeyboardInterrupt:
