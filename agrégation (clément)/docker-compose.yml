@@ -1,0 +1,10 @@
+aggregator:
+  build: ./aggregator
+  ports:
+    - "5002:5000"
+  networks:
+    - canaduck
+
+networks:
+  canaduck:
+    driver: bridge

@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose le port du service
-EXPOSE 4000
+EXPOSE 5000
 
-# Lance Philibert
-CMD ["python", "philiber.py"]
+# Lance le serveur Flask
+CMD ["python", "meteo.py"]
